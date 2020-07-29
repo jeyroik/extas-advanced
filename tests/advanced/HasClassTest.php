@@ -45,9 +45,7 @@ class HasClassTest extends TestCase
 
     public function testBasic()
     {
-        $item = new class ([
-            IHasClass::FIELD__CLASS => Dispatcher::class
-        ]) extends Item {
+        $item = new class extends Item {
             use THasWatchableClass;
 
             protected function getSubjectForExtension(): string
@@ -55,6 +53,8 @@ class HasClassTest extends TestCase
                 return 'test';
             }
         };
+
+        $item->setClass(Dispatcher::class);
 
         $this->createSnuffPlugin(PluginBeforeBuildAll::class, [IStageBeforeBuild::NAME__ALL]);
         $this->createSnuffPlugin(PluginBeforeBuildPersonal::class, [IStageBeforeBuild::NAME . Dispatcher::class]);
