@@ -36,7 +36,6 @@ class HasClassTest extends TestCase
         parent::setUp();
         $env = Dotenv::create(getcwd() . '/tests/');
         $env->load();
-        $this->deflou = new Deflou();
     }
 
     protected function tearDown(): void
