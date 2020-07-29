@@ -80,7 +80,7 @@ class HasClassTest extends TestCase
         $result = $item->runWithParameters(['test' => 'ok'], 'testMe', 'arg1');
 
         $this->assertEquals(
-            'ok.before(all).before(personal).after(all).after(personal).' .
+            'ok.before(all).before(personal).after(personal).after(all).' .
             'arg1.before-run(all).before-run(personal).tested.after-run(personal).after-run(all)',
             $result,
             'Incorrect: ' . $result
